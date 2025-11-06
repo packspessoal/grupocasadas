@@ -1,0 +1,701 @@
+
+<html><head><meta charset="UTF-8">
+      <style>
+        /* Estilos do corpo com !important para garantir aplicação */
+        body {
+          background-color: #111827 !important;
+          
+          background-size: cover !important;
+          background-position: center !important;
+          background-repeat: no-repeat !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          font-family: Arial, sans-serif !important;
+          color: #333333 !important;
+          border-radius: 0px !important;
+        }
+        
+        /* Container principal com largura e alinhamento configurados */
+        .leadflux-content-container {
+          max-width: 800px !important;
+          margin: 0 auto !important;
+          padding: 20pxpx !important;
+          text-align: center !important;
+          background-color: #111827 !important;
+          font-family: Arial, sans-serif !important;
+          color: inherit !important;
+        }
+        
+        /* Estilos de links personalizados */
+        
+        
+        /* Estilos para popup (se aplicável) */
+        
+        
+        /* Garantir que linhas e colunas mantenham estrutura */
+        .leadflux-row {
+          display: flex !important;
+          width: 100% !important;
+          justify-content: center !important;
+          align-items: center !important;
+          flex-wrap: wrap !important;
+          gap: 20px !important;
+        }
+        
+        .leadflux-column {
+          flex: 1 !important;
+          min-width: 0 !important;
+          display: flex !important;
+          flex-direction: column !important;
+        }
+        
+        /* Estilos específicos para depoimentos - usando classes existentes */
+        .bg-white.rounded-lg.p-6 {
+          background-color: #ffffff !important;
+          border-radius: 12px !important;
+          padding: 24px !important;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+          margin-bottom: 20px !important;
+          text-align: center !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
+        }
+        
+        /* Estilos para grid de testimonials - preservando classes existentes */
+        .grid.gap-6 {
+          display: grid !important;
+          gap: 24px !important;
+          width: 100% !important;
+        }
+        
+        /* Estilos para elementos de testimonial individuais */
+        .w-12.h-12.rounded-full.object-cover {
+          width: 48px !important;
+          height: 48px !important;
+          border-radius: 50% !important;
+          object-fit: cover !important;
+          display: block !important;
+        }
+        
+        .font-semibold.text-gray-900 {
+          font-weight: 600 !important;
+          font-size: 16px !important;
+          margin-bottom: 8px !important;
+          color: #1f2937 !important;
+          line-height: 1.2 !important;
+        }
+        
+        .text-gray-700.mb-4.italic {
+          font-size: 16px !important;
+          line-height: 1.6 !important;
+          color: #6b7280 !important;
+          margin-bottom: 16px !important;
+        }
+        
+        /* Estilos para estrelas de avaliação */
+        .flex.items-center.space-x-1 {
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          gap: 4px !important;
+          margin-bottom: 12px !important;
+        }
+        
+        .w-4.h-4.text-yellow-400 {
+          width: 16px !important;
+          height: 16px !important;
+          color: #fbbf24 !important;
+        }
+        
+        /* Estilos específicos para componente Social */
+        .flex.items-center.justify-center.rounded-full {
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          border-radius: 50% !important;
+          transition: all 0.2s ease-in-out !important;
+        }
+        
+        .flex.items-center.justify-center.rounded-full:hover {
+          transform: scale(1.1) !important;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        /* Tamanhos dos ícones sociais */
+        .w-8.h-8.text-sm {
+          width: 32px !important;
+          height: 32px !important;
+          font-size: 14px !important;
+        }
+        
+        .w-10.h-10.text-base {
+          width: 40px !important;
+          height: 40px !important;
+          font-size: 16px !important;
+        }
+        
+        .w-12.h-12.text-lg {
+          width: 48px !important;
+          height: 48px !important;
+          font-size: 18px !important;
+        }
+        
+        /* Container principal dos ícones sociais */
+        .flex.items-center {
+          display: flex !important;
+          align-items: center !important;
+        }
+        
+        /* Layout vertical e horizontal */
+        .flex.items-center[style*="flex-direction: column"] {
+          flex-direction: column !important;
+        }
+        
+        .flex.items-center[style*="flex-direction: row"] {
+          flex-direction: row !important;
+        }
+        
+        /* Estado vazio - nenhuma rede social configurada */
+        .flex.items-center.justify-center.text-gray-400.border-2.border-dashed.border-gray-300.rounded-lg {
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          color: #9ca3af !important;
+          border: 2px dashed #d1d5db !important;
+          border-radius: 8px !important;
+          text-align: center !important;
+        }
+        
+        /* Ícones SVG dentro dos botões sociais */
+        .flex.items-center.justify-center.rounded-full svg {
+          width: 100% !important;
+          height: 100% !important;
+          fill: currentColor !important;
+        }
+        
+        /* Labels dos ícones sociais */
+        .ml-2.text-xs.font-medium.hidden.sm\:inline {
+          margin-left: 8px !important;
+          font-size: 12px !important;
+          font-weight: 500 !important;
+        }
+        
+        /* Estilos específicos para carrossel */
+        .carousel-container {
+          position: relative !important;
+          height: 400px !important;
+          border-radius: 8px !important;
+          overflow: hidden !important;
+        }
+        
+        .carousel-image {
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100% !important;
+          height: 100% !important;
+          transition: opacity 0.5s ease-in-out !important;
+        }
+        
+        .carousel-image img {
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: cover !important;
+        }
+        
+        .carousel-dot {
+          width: 12px !important;
+          height: 12px !important;
+          border-radius: 50% !important;
+          background-color: rgba(255, 255, 255, 0.5) !important;
+          cursor: pointer !important;
+          transition: all 0.3s ease !important;
+          border: 2px solid rgba(255, 255, 255, 0.3) !important;
+        }
+        
+        .carousel-dot:hover {
+          background-color: rgba(255, 255, 255, 0.8) !important;
+          transform: scale(1.1) !important;
+        }
+        
+        .carousel-dot.active {
+          background-color: #ffffff !important;
+          border-color: #ffffff !important;
+          transform: scale(1.2) !important;
+        }
+        
+        /* Estilos para botões de navegação */
+        .carousel-container button {
+          position: absolute !important;
+          top: 50% !important;
+          transform: translateY(-50%) !important;
+          background: rgba(255, 255, 255, 0.9) !important;
+          border: none !important;
+          border-radius: 50% !important;
+          width: 40px !important;
+          height: 40px !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          cursor: pointer !important;
+          transition: all 0.3s ease !important;
+          z-index: 10 !important;
+        }
+        
+        .carousel-container button:hover {
+          background: rgba(255, 255, 255, 1) !important;
+          transform: translateY(-50%) scale(1.1) !important;
+        }
+        
+        .carousel-container button:first-of-type {
+          left: 16px !important;
+        }
+        
+        .carousel-container button:last-of-type {
+          right: 16px !important;
+        }
+        
+        /* Estilos específicos para botões */
+        .custom-button {
+          display: inline-block !important;
+          padding: 12px 24px !important;
+          background-color: #007bff !important;
+          color: #ffffff !important;
+          text-decoration: none !important;
+          border-radius: 6px !important;
+          font-weight: 500 !important;
+          text-align: center !important;
+          transition: background-color 0.3s ease !important;
+          border: none !important;
+          cursor: pointer !important;
+        }
+        
+        .custom-button:hover {
+          background-color: #0056b3 !important;
+        }
+        
+        /* Estilos responsivos com alta especificidade */
+        @media (max-width: 768px) {
+          .leadflux-content-container {
+            padding: 15px !important;
+            max-width: 100% !important;
+          }
+          
+          .leadflux-row {
+            flex-direction: column !important;
+            gap: 15px !important;
+          }
+          
+          .leadflux-column {
+            width: 100% !important;
+            flex: none !important;
+          }
+          
+          /* Grid responsivo para testimonials - usando classes existentes */
+          .grid.gap-6 {
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+          }
+          
+          .bg-white.rounded-lg.p-6 {
+            padding: 20px !important;
+            margin-bottom: 15px !important;
+          }
+          
+          /* Social responsivo */
+          .flex.items-center.justify-center.rounded-full {
+            transform: none !important;
+          }
+          
+          .flex.items-center.justify-center.rounded-full:hover {
+            transform: scale(1.05) !important;
+          }
+          
+          .w-8.h-8.text-sm,
+          .w-10.h-10.text-base,
+          .w-12.h-12.text-lg {
+            width: 36px !important;
+            height: 36px !important;
+          }
+          
+          .carousel-container {
+            height: 250px !important;
+          }
+          
+          .custom-button {
+            width: 100% !important;
+            text-align: center !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .leadflux-content-container {
+            padding: 10px !important;
+          }
+          
+          .testimonial-card {
+            padding: 16px !important;
+          }
+          
+          .testimonial-photo {
+            width: 60px !important;
+            height: 60px !important;
+          }
+        }
+      </style>
+    
+      <!-- Google Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+      
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+      
+      <!-- CSS para ícones (fallback) -->
+      <style>
+        .icon-star {
+          background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="%23fbbf24" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>');
+          width: 16px;
+          height: 16px;
+          display: inline-block;
+        }
+        
+        .icon-arrow-left {
+          background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="%236b7280" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>');
+          width: 24px;
+          height: 24px;
+          display: inline-block;
+        }
+        
+        .icon-arrow-right {
+          background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="%236b7280" viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L15.17 12z"/></svg>');
+          width: 24px;
+          height: 24px;
+          display: inline-block;
+        }
+      </style>
+    
+      <script>
+        // Função para inicializar carrosséis
+        function initCarousels() {
+          console.log('🎠 Inicializando carrosséis...');
+          const carousels = document.querySelectorAll('.carousel-container');
+          console.log('🎠 Carrosséis encontrados:', carousels.length);
+          
+          carousels.forEach((carousel, carouselIndex) => {
+            const images = carousel.querySelectorAll('.carousel-image');
+            const dots = carousel.querySelectorAll('.carousel-dot');
+            let currentIndex = 0;
+            let autoplayInterval = null;
+            
+            console.log('🎠 Carrossel', carouselIndex, 'com', images.length, 'imagens');
+            
+            if (images.length === 0) return;
+            
+            // Função para mostrar imagem específica
+            function showImage(index) {
+              console.log('🎠 Mostrando imagem', index);
+              images.forEach((img, i) => {
+                img.style.opacity = i === index ? '1' : '0';
+              });
+              
+              // Atualizar indicadores
+              dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+              });
+              
+              currentIndex = index;
+            }
+            
+            // Mostrar primeira imagem
+            showImage(0);
+            
+            // Auto-play se configurado
+            if (carousel.dataset.autoplay === 'true') {
+              console.log('🎠 Auto-play ativado para carrossel', carouselIndex);
+              const interval = parseInt(carousel.dataset.interval) || 5000;
+              console.log('🎠 Intervalo:', interval, 'ms');
+              
+              autoplayInterval = setInterval(() => {
+                const nextIndex = (currentIndex + 1) % images.length;
+                showImage(nextIndex);
+              }, interval);
+            }
+            
+            // Navegação por pontos
+            dots.forEach((dot, index) => {
+              dot.addEventListener('click', () => {
+                console.log('🎠 Clique no ponto', index);
+                showImage(index);
+                
+                // Resetar auto-play se estiver ativo
+                if (autoplayInterval) {
+                  clearInterval(autoplayInterval);
+                  autoplayInterval = setInterval(() => {
+                    const nextIndex = (currentIndex + 1) % images.length;
+                    showImage(nextIndex);
+                  }, parseInt(carousel.dataset.interval) || 5000);
+                }
+              });
+            });
+            
+            // Navegação por setas (se existirem)
+            const prevButton = carousel.querySelector('button[onclick*="goToPrevious"]');
+            const nextButton = carousel.querySelector('button[onclick*="goToNext"]');
+            
+            if (prevButton) {
+              prevButton.addEventListener('click', () => {
+                const prevIndex = (currentIndex - 1 + images.length) % images.length;
+                showImage(prevIndex);
+              });
+            }
+            
+            if (nextButton) {
+              nextButton.addEventListener('click', () => {
+                const nextIndex = (currentIndex + 1) % images.length;
+                showImage(nextIndex);
+              });
+            }
+          });
+        }
+        
+        // Função para corrigir URLs de imagens quebradas
+        function fixBrokenImages() {
+          const images = document.querySelectorAll('img');
+          
+          images.forEach(img => {
+            img.addEventListener('error', function() {
+              // Substituir por imagem placeholder se falhar
+              this.src = 'https://via.placeholder.com/400x300?text=Imagem+não+encontrada';
+              this.alt = 'Imagem não disponível';
+            });
+          });
+        }
+        
+        // Função para inicializar quando DOM estiver pronto
+        function initPage() {
+          initCarousels();
+          fixBrokenImages();
+        }
+        
+        // Inicializar quando DOM estiver pronto
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initPage);
+        } else {
+          initPage();
+        }
+      </script>
+    
+      <script>
+        // Script para controlar exibição de elementos com delay
+        document.addEventListener('DOMContentLoaded', function() {
+          const delayElements = document.querySelectorAll('[data-delay-active="true"]');
+          
+          delayElements.forEach(element => {
+            const delayTime = element.getAttribute('data-delay-time');
+            if (delayTime && delayTime !== '') {
+              // Inicialmente ocultar
+              element.classList.add('delay-hide');
+              
+              // Calcular tempo de delay
+              const [value, unit] = delayTime.split(' ');
+              let milliseconds = 0;
+              
+              if (unit === 'seconds' || unit === 'segundos') {
+                milliseconds = parseFloat(value) * 1000;
+              } else if (unit === 'minutes' || unit === 'minutos') {
+                milliseconds = parseFloat(value) * 60 * 1000;
+              }
+              
+              // Exibir após o delay
+              if (milliseconds > 0) {
+                setTimeout(() => {
+                  element.classList.remove('delay-hide');
+                  element.classList.add('delay-show');
+                }, milliseconds);
+              } else {
+                // Se não houver delay válido, mostrar imediatamente
+                element.classList.remove('delay-hide');
+                element.classList.add('delay-show');
+              }
+            }
+          });
+        });
+      </script>
+    
+                <style>
+                    html {
+                        scroll-behavior: smooth;
+                    }
+                </style>
+
+                
+            <script>
+                const v_123_pageId = "68fa73e9615cd450e463f8eb";
+                const v_123_siteId = "68015e85a24a037d7ec24e31";
+                const v_123_siteType = "HTML";
+                const v_123_slug = null;
+            </script>
+
+            
+                    <script>
+                        const v_123_delayActive = false;
+                    </script>
+
+                    </head><body><div class="leadflux-published"><div class="shadow-sm " style="color: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 16px; line-height: 1.6; padding: 20px; background-color: rgb(17, 24, 39); background-size: cover; background-position: center center; background-repeat: no-repeat; --site-text-color: #333333; --site-link-color: #0066cc; --site-link-hover-color: #004499; --site-link-underline: underline; --site-link-hover-underline: underline; --site-font-family: Arial, sans-serif; border-radius: 0px;"><style>
+          :where(#leadflux-canvas-root) {
+            color: var(--site-text-color, inherit);
+            font-family: var(--site-font-family, inherit);
+          }
+          :where(#leadflux-canvas-root) a,
+          :where(#leadflux-canvas-root) a:visited {
+            color: var(--site-link-color, #0066cc);
+            text-decoration: var(--site-link-underline, underline);
+          }
+          :where(#leadflux-canvas-root) a:hover,
+          :where(#leadflux-canvas-root) a:focus {
+            color: var(--site-link-hover-color, #004499);
+            text-decoration: var(--site-link-hover-underline, underline);
+          }
+        </style><div class="flex w-full justify-center items-center relative" style="background-color: transparent; background-image: none; background-repeat: no-repeat; background-size: cover; background-position: center center; padding: 0px;"><div class="flex w-full" style="justify-content: center; margin: 0px auto; max-width: 800px;"><div class="transition-all duration-200 relative" style="width: 100%; background-color: transparent; border-radius: 0px; border-width: initial; border-style: none; border-color: initial; padding: 0px;"><div class="relative group"><div style="padding: 10px; width: 100%; height: auto;">
+ <meta charset="utf-8"> <meta http-equiv="x-ua-compatible" content="ie=edge"> <title>GRUPO DAS CASADAS</title> <meta name="description" content=""> <meta name="viewport" content="width=device-width,initial-scale=1"> <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet" type="text/css"> <style type="text/css">
+.u-row{display:flex;flex-wrap:nowrap;margin-left:0;margin-right:0}.u-row .u-col{position:relative;width:100%;padding-right:0;padding-left:0}.u-row .u-col.u-col-100{flex:0 0 100%;max-width:100%}@media (max-width:480px){.container{max-width:100%!important}.u-row:not(.no-stack){flex-wrap:wrap}.u-row:not(.no-stack) .u-col{flex:0 0 100%!important;max-width:100%!important}}body,html{margin:0;padding:0}html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}html{font-size:14px;-ms-overflow-style
+:scrollbar;-webkit-tap-highlight-color:transparent}p{margin:0}form .error-field{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:shake;animation-name:shake}form .error-field input,form .error-field textarea{border-color:#a94442!important;color:#a94442!important}form .field-error{font-size:14px;font-weight:700;padding:5px 10px;position:absolute;right:10px;top:-20px}form .field-error:after{border:solid transparent;
+border-color:#ebcccc rgba(136,183,213,0) rgba(136,183,213,0);border-width:5px;content:" ";height:0;left:50%;margin-left:-5px;pointer-events:none;position:absolute;top:100%;width:0}form .spinner{margin:0 auto;text-align:center;width:70px}form .spinner>div{-webkit-animation:sk-bouncedelay 1.4s ease-in-out infinite both;animation:sk-bouncedelay 1.4s ease-in-out infinite both;background-color:hsla(0,0%,100%,.5);border-radius:100%;display:inline-block;height:12px;margin:0 2px;width:12px}
+form .spinner .bounce1{-webkit-animation-delay:-.32s;animation-delay:-.32s}form .spinner .bounce2{-webkit-animation-delay:-.16s;animation-delay:-.16s}@-webkit-keyframes sk-bouncedelay{0%,80%,to{-webkit-transform:scale(0)}40%{-webkit-transform:scale(1)}}@keyframes sk-bouncedelay{0%,80%,to{-webkit-transform:scale(0);transform:scale(0)}40%{-webkit-transform:scale(1);transform:scale(1)}}@-webkit-keyframes shake{0%,to{-webkit-transform:translateZ(0);transform:translateZ(0)}10%,30%,50%,70%,90%{
+-webkit-transform:translate3d(-10px,0,0);transform:translate3d(-10px,0,0)}20%,40%,60%,80%{-webkit-transform:translate3d(10px,0,0);transform:translate3d(10px,0,0)}}@keyframes shake{0%,to{-webkit-transform:translateZ(0);transform:translateZ(0)}10%,30%,50%,70%,90%{-webkit-transform:translate3d(-10px,0,0);transform:translate3d(-10px,0,0)}20%,40%,60%,80%{-webkit-transform:translate3d(10px,0,0);transform:translate3d(10px,0,0)}}.container{--bs-gutter-x:0px;--bs-gutter-y:0;margin-left:auto;margin-right:
+auto;padding-left:calc(var(--bs-gutter-x)*.5);padding-right:calc(var(--bs-gutter-x)*.5);width:100%}a[onclick]{cursor:pointer}body{font-family:Poppins,sans-serif;font-size:1rem;line-height:1.5;color:#000;background-color:#fff}#u_body a{color:#00e;text-decoration:underline}#u_body a:hover{color:#00e;text-decoration:underline}</style> 
+                <style>
+                    html {
+                        scroll-behavior: smooth;
+                    }
+                </style>
+
+                
+            <script>
+                const v_123_pageId = "6837319fa24a037d7ed07369";
+                const v_123_siteId = "6722f6d0fe09829e27d6ecec";
+                const v_123_siteType = "HTML";
+                const v_123_slug = null;
+            </script>
+
+            
+                    <script>
+                        const v_123_delayActive = false;
+                    </script>
+
+                      <div id="u_body" class="u_body" style="min-height:100vh;display:flex;flex-direction:column"> <div id="u_row_1" class="u_row" style="padding:0"> <div class="container" style="max-width:800px;margin:0 auto"> <div class="u-row"> <div id="u_column_1" class="u-col u-col-100 u_column" style="display:flex;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0"> <div style="width:100%;padding:0"> <div id="u_content_html_1" class="u_content_html" style="overflow-wrap:break-word;padding:10px"> <div>   <meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width,initial-scale=1"> <title>GRUPO DAS CASADAS</title> <script src="https://cdn.tailwindcss.com"></script> <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <style>a{text-decoration:none!important}</style> <!-- Meta Pixel Code --> <script>
+!function(e,n,t,i,f,c,b){e.fbq||(f=e.fbq=function(){f.callMethod?f.callMethod.apply(f,arguments):f.queue.push(arguments)},e._fbq||(e._fbq=f),(f.push=f).loaded=!0,f.version="2.0",f.queue=[],(c=n.createElement(t)).async=!0,c.src="https://connect.facebook.net/en_US/fbevents.js",(b=n.getElementsByTagName(t)[0]).parentNode.insertBefore(c,b))}(window,document,"script"),fbq("init","878177900191398"),fbq("init","1024671598602648"),fbq("init","8382340001782345"),fbq("init","395958940212373"),fbq("init","392375057175187"),fbq("init","623351457397518"),fbq("init","720425630566978"),fbq("init","1211733580437369"),fbq("track","Purchase",{currency:"BRL",value:17})
+</script> <noscript> <img height="1" width="1" style="display:none!important" src="https://www.facebook.com/tr?id=878177900191398&amp;ev=PageView&amp;noscript=1"> </noscript> <!-- End Meta Pixel Code -->   <!-- Headline --> <h1 class="text-3xl font-bold text-pink-400 text-center"> Parabéns<br> <span class="text-gray-300">Seja bem-vindo ao grupo das casadas</span> </h1> <!-- Botões com imagem ao lado --> <div class="flex flex-col space-y-4 w-full max-w-sm"> <a href="https://t.me/+g6ZEJhGy-RM1OTJh" target="_blank" class="flex items-center justify-center bg-purple-700 text-white text-lg px-4 py-3 rounded-lg shadow hover:bg-purple-800 transition-colors space-x-3"> <span class="font-semibold text-center text-white">CLIQUE AQUI E ENTRE NO GRUPO</span> <img src="https://i.postimg.cc/LXLSyGRh/768px-Telegram-logo-svg.png" alt="Imagem" class="w-10 h-10 rounded-full"> </a> <a href="https://api.whatsapp.com/send?phone=5511960360037&amp;text=Ol%C3%A1%20amor" target="_blank" class="flex items-center justify-center bg-emerald-700 text-white text-lg px-4 py-3 rounded-lg shadow hover:bg-emerald-800 transition-colors space-x-3"> <span class="font-semibold text-center text-white">Meu Whats Pessoal</span> <img src="https://i.postimg.cc/GpSnhd34/images.png" alt="Imagem" class="w-10 h-10 rounded-full"> </a> </div> <!-- Galeria de Packs com espaçamento --> <div class="mt-8 grid grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-2xl"> <a href="https://drive.google.com/drive/folders/15dVcWW_kfAPoDm-6eYXQmHpqeoNaZkTH?usp=drive_link" target="_blank" class="flex flex-col items-center"> <img src="https://i.postimg.cc/8P2k33Fr/LIVIA-SANTOS-1.png" alt="Pack Modelo 01" class="rounded-lg shadow hover:opacity-80 transition-opacity"> <span class="mt-2 font-semibold text-white text-lg">Livia</span> </a> <a href="https://drive.google.com/drive/folders/1v3_ednTxfA801xt355QPBCa-mKnr4eVu?usp=drive_link" target="_blank" class="flex flex-col items-center"> <img src="https://i.postimg.cc/Ss5TfHdg/LIVIA-SANTOS-2.png" alt="Pack Modelo 02" class="rounded-lg shadow hover:opacity-80 transition-opacity"> <span class="mt-2 font-semibold text-white text-lg">Tainara</span> </a> <a href="https://drive.google.com/drive/folders/1OwG4X3ITktVwQcvTzeWqLRLRKrTHgMV-?usp=drive_link" target="_blank" class="flex flex-col items-center"> <img src="https://i.postimg.cc/Bn2wNpwJ/LIVIA-SANTOS-3.png" alt="Pack Modelo 03" class="rounded-lg shadow hover:opacity-80 transition-opacity"> <span class="mt-2 font-semibold text-white text-lg">Michele</span> </a> <a href="https://drive.google.com/drive/folders/1x07VqZQYB3QTNBHzgwPUlWVz3w6GQaJG" target="_blank" class="flex flex-col items-center"> <img src="https://i.postimg.cc/2y1MFBtv/LIVIA-SANTOS-4.png" alt="Pack Modelo 04" class="rounded-lg shadow hover:opacity-80 transition-opacity"> <span class="mt-2 font-semibold text-white text-lg">Bia</span> </a> <a href="https://go.perfectpay.com.br/PPU38CP1GK5/?src=UP-PV-G05" target="_blank" class="flex flex-col items-center"> <img src="https://i.postimg.cc/GhsQC1sb/LIVIA-SANTOS-5.png" alt="Pack Modelo 05" class="rounded-lg shadow hover:opacity-80 transition-opacity"> <span class="mt-2 font-semibold text-white text-lg">Cidade: <span class="address" style="color:red">...</span>
+</span> </a> <a href="https://go.perfectpay.com.br/PPU38CP1GK5/?src=UP-PV-G06" target="_blank" class="flex flex-col items-center"> <img src="https://i.postimg.cc/W4r6kRvs/LIVIA-SANTOS-7.png" alt="Pack Modelo 06" class="rounded-lg shadow hover:opacity-80 transition-opacity"> <span class="mt-2 font-semibold text-white text-lg">Cidade: <span class="address" style="color:red">...</span></span> </a> </div> <!-- Script para inserir localização --> <script>
+$(document).ready(function(){$.get("https://ipinfo.io/json",function(t){$(".address").text(t.city)},"jsonp")})</script>    <div class="elementor-widget-container"> <script> const delayEmSegundosVagas = 1;
+const delayEmSegundosCompras = 1;
+const manterVagasVisiveis = false;
+
+const compras = [
+    { nome: "Vanessa R.", tempo: "45 minutos" },
+    { nome: "Raquel Silveira", tempo: "22 minutos" },
+    { nome: "Roberta Cavalcante", tempo: "32 minutos" },
+    { nome: "Ana R.", tempo: "12 minutos" },
+    { nome: "Marcela F.", tempo: "51 minutos" },
+    { nome: "Juliana D.", tempo: "37 minutos" }
+];
+
+let cidadeUsuario = "sua cidade";
+
+// Função para obter cidade via ipapi.co
+function obterCidade() {
+    fetch('https://ipapi.co/json/')
+    .then(res => res.json())
+    .then(data => {
+        cidadeUsuario = data.city || "sua cidade";
+    })
+    .catch(() => {
+        cidadeUsuario = "sua cidade";
+    });
+}
+
+obterCidade(); </script> <style>
+:root{--cor-de-destaque:#f00}#vagas b,#views b{color:var(--cor-de-destaque)}#vagas{display:none}#views{max-width:800px;margin:auto;line-height:1.4}#toast-compras{position:fixed;right:20px;bottom:20px;z-index:1000;background-color:#fff;padding:10px 20px;display:flex;align-items:center;justify-content:center;gap:20px;border-radius:5px;box-shadow:1px 1px 5px #00000036;transform:translateY(calc(100% + 40px));transition:all .3s ease;opacity:0}#toast-compras.show{transform:none;opacity:1}
+#toast-compras *{font-family:Roboto,sans-serif}#toast-compras svg{width:40px;height:40px;fill:#11f849;border:3px solid #11f849;padding:5px;border-radius:100px}#toast-compras .textos .linha-1{display:flex;gap:20px;align-items:center;margin:0 0 5px}#toast-compras .textos .linha-1 .nome{font-size:16px;font-weight:500;line-height:16px;color:#1b1b1b;margin:0}#toast-compras .textos .linha-1 .tempo{font-size:14px;font-weight:400;line-height:14px;color:#7a7a7a;margin:0}#toast-compras .textos .pagamento{
+font-size:16px;line-height:1;color:#7a7a7a;margin:0}</style> <div id="toast-compras"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96.01 447.98 319.97"> <path d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"></path> </svg> <div class="textos"> <div class="linha-1"> <p class="nome">
+Raquel Silveira</p> <p class="tempo">há 20 minutos</p> </div> <p class="pagamento">de <b class="cidade">sua cidade</b></p> </div> </div> <script> setTimeout(() => { configurarVagas(); }, delayEmSegundosVagas * 1000);
+setTimeout(() => { mostrarToast(); }, delayEmSegundosCompras * 1000);
+
+document.addEventListener('DOMContentLoaded', function(){
+    inserirData();
+    configurarViews();
+    if(manterVagasVisiveis) exibirVagas();
+});
+
+function exibirVagas(){
+    document.querySelector('#vagas').style.display = "block";
+}
+
+function configurarVagas() {
+    exibirVagas();
+    const vagasInterval = setInterval(() => {
+        const vagasElement = document.querySelector('#vagas b');
+        const vagas = Number(vagasElement.innerText);
+        if(vagas >= 100) {
+            vagasElement.innerText = vagas - randomNumber(3, 8);
+        } else if(vagas >= 30) {
+            vagasElement.innerText = vagas - randomNumber(1, 3);
+        } else if(vagas >= 4) {
+            vagasElement.innerText = vagas - 1;
+        } else {
+            clearInterval(vagasInterval);
+        }
+    }, randomNumber(4, 8) * 1000);
+}
+
+function configurarViews() {
+    const viewsInterval = setInterval(() => {
+        const viewsElement = document.querySelector('#views b.qtd');
+        const views = Number(viewsElement.innerText);
+        if(views <= 500) {
+            viewsElement.innerText = views + randomNumber(3, 8);
+        } else if(views >= 2300) {
+            viewsElement.innerText = views + randomNumber(-5, 5);
+        } else {
+            viewsElement.innerText = views + randomNumber(-3, 12);
+        }
+    }, 5000);
+}
+
+function mostrarToast() {
+    configurarToast();
+    document.querySelector('#toast-compras').classList.add('show');
+    setTimeout(() => {
+        document.querySelector('#toast-compras').classList.remove('show');
+        setTimeout(() => {
+            mostrarToast();
+        }, randomNumber(5, 10) * 1000);
+    }, 2500);
+}
+
+function configurarToast() {
+    document.querySelector('#toast-compras .nome').innerText = compras[0].nome;
+    document.querySelector('#toast-compras .tempo').innerText = `há ${compras[0].tempo}`;
+    document.querySelector('#toast-compras .pagamento').innerHTML = `de <b>${cidadeUsuario}</b>`;
+    compras.push(compras.shift());
+}
+
+function randomNumber(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function inserirData() {
+    const data = new Date().toLocaleDateString();
+    const dataEl = document.querySelector('#views b.date');
+    if(dataEl) dataEl.innerText = data;
+} </script> </div> </div> </div> </div> </div> </div> </div> </div> </div>  
+
+                    <script async="true" src="https://c1.cdn1tp.net/ghelper/googletagmanager.js"></script>
+                <!-- Script para inserir localização --></div></div></div></div></div></div></div>
+                    <script async="true" src="https://c1.cdn1tp.net/ghelper/googletagmanager.js"></script>
+                </body></html>
